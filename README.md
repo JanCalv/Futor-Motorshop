@@ -1,2 +1,2 @@
 # Futor-Motorshop
-This is my self project
+This is my own project
