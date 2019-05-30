@@ -1,0 +1,144 @@
+.navigation {
+
+    &_checkbox{     // hides the checkbox
+        display: none;      
+    }
+
+    &_button {          //this is the label that will be the button like this " O "
+        height: 5rem;   // Highest z-index
+        width: 5rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        background-color: $color-white;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 3;
+        box-shadow: 0 1rem 3rem rgba(#000000, .5);
+        text-align: center; 
+    }
+
+    &_background {              // this is the background or modal or the ones that appear when you click the menu bar
+        height: 4rem;           // this background should be smaller than the navigation_button it should be hide behind that
+        width: 4rem;            // lowest highest z-index
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 1;             //you can use z-index: 100 or more if you add this to your website to be fixed position
+                                // transform: scale(40); for testing purposes
+        transition: transform .4s;
+    }
+
+    &_nav {
+        height: 100vh;              // this is the nav element that will be in the whole &_background
+        position: fixed;            // it is aligned and positioned at the center of the &_background 
+        top: 0;                     //2nd highest z-index
+        left: 0;                    //to make it not visible to the website it will be only 
+        z-index:2;                  // this nav all with links and items will be only visible once you click the menu
+        opacity: 0; 
+        width: 0;
+        transition: all .8s cubic-bezier(.3,.45,.12,1.12);
+        
+    }
+
+    &_list {
+        position: absolute;                         //this is the <li> use the positioning / translate technique to make it to
+        top: 50%;                                   // the center of the &_background and &_nav
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style:none;
+        text-align: center;
+    }
+
+    &_item {
+        margin: 2rem 0;                            // to make space between the list items
+    }
+
+    &_link,
+        &:visited,
+        &:link {                                        // li and a , visited and link
+            width:100%;                                 //to make the links align
+            font-size: 3rem;                          // designed the text in list items this is the anchor tag
+            font-weight: 300;                           // set the linear gradient for the hover effect
+            text-transform: uppercase;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            background-image: linear-gradient(120deg, transparent 0%,transparent 50%, white 50%);
+            background-size: 225%;
+            transition: all .4s; 
+            display: inline-block; //to add the padding and transform X hover
+
+        &:hover,
+        &:active {                                      //hover effect of the list items
+            color: $color-primary;
+            background-position: 100%;
+            transform: translateX(5px);
+        }
+    }
+
+    &_checkbox:checked ~ &_background {
+        transform: scale(80);                       // this is to make all the menu appear once you clicked the menu icon
+    }                                               // it will scale to the whole screen the navs and li and a's
+
+    &_checkbox:checked ~ &_nav {
+        opacity: 1;                                 //to make the navigation_nav visibile
+        width: 100%;
+    }
+
+// ICON
+    &_icon {
+        position: relative; //absolute to the icon, icon-before, icon-after
+        margin-top: 2.5rem;
+
+        &,
+        &::before,
+        &::after {              // this makes the hamburger menu lines but the last one is far from the middle one (&_icon)
+            width: 2.5rem;
+            height: 2px;
+            background-color: $color-black;
+            display: inline-block;
+           
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;                //this shows the hamburger menu bar and fix the issue about the gap of &_icon::after to &_icon
+            transition: all .3s;
+        }
+
+        &::before { top: -.8rem; }
+        &::after { top: .8rem; }    //this aligns the top of before and after of icon to make it to the center
+    } 
+    
+
+    
+    &_button:hover &_icon::before {
+        top: -1rem;                    //when you hover the hambrger menu it the before or top section will move up
+    }
+    &_button:hover &_icon::after {
+        top: 1rem;                  //when you hover the hambrger menu it the before or top section will move down
+    }
+
+
+    // this section makes the X symbol when you click the checkbox menu it will make the &_icon line transparent and the before and after to
+    // form like " X "
+
+    &_checkbox:checked + &_button &_icon { //if checkbox is checked the child if his child will get what you put there
+        background-color: transparent;
+    }
+
+    &_checkbox:checked + &_button &_icon::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    &_checkbox:checked + &_button &_icon::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}

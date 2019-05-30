@@ -1,0 +1,150 @@
+.section__about {
+    height: 90vh;
+    background-image: linear-gradient(to left bottom, rgba(63, 0, 42, 0.048), rgb(0, 0, 0)), url(../images/about-pic.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    @include respond(tab-port){
+        height: 107vh;
+    }
+
+    @include respond(phone){
+        height: 111vh;
+    }
+
+    &-container {
+        background-image: linear-gradient(to left bottom, rgba($color-primary, .8), rgba($color-primary, .8));
+        background-size: cover;
+        background-position: center;
+        height:100%; 
+        clip-path: polygon(58% 0%, 100% 0%, 100% 100%, 25% 100%);
+        padding: 0 30rem;
+        font-family: "Lato", sans-serif;
+        position: relative;
+
+        @include respond(tab-port) {
+            // position: absolute;
+            // top: 7rem;
+            // left: 18.5rem;
+            // width: 67%;
+            clip-path: none;
+        }
+
+            .section-wrapper-row {
+                position: absolute;
+                top: 10rem;
+                left: 55rem; 
+                width: 50%;
+
+                @include clearfix;
+
+                @include respond(tab-port) {
+                    position: absolute;
+                    top: 2rem;
+                    left: 3.5rem;
+                    width: 85%;
+                }
+
+                @include respond(phone) {
+                    position: absolute;
+                    top: 2rem;
+                    left: 4.8rem;
+                    width: 87%;
+                }
+                
+                
+                .section-row {
+                    width: 100%;
+                    margin: 1rem auto;
+                    text-align: right;
+
+
+                    @include respond(phone) {
+                        width: 96%;
+                        margin: 2rem auto;
+                        text-align: right;
+                    }
+
+                    
+
+                    .section-icon {
+                        width: 5rem;
+                        float: right;
+                        margin-left: 3.5rem;
+                        
+                        @include respond(phone) {
+                            width: 5rem;
+                            float: right;
+                            margin-left: 2.5rem;
+                            margin-top: 2.5rem;
+                        }
+                    }
+                }
+                
+            }
+    }
+
+}
+
+// TYPOGRAPHY
+.section-wrapper-row {
+    color: $color-white;
+
+   
+
+
+    .section-row {
+        .section-heading-primary {
+            font-size: 3rem;
+            text-transform: uppercase;  
+            
+            @include respond(tab-port) {
+                font-size: 5rem;
+            }
+        }
+
+        .section-desc-primary {
+            font-size: 1.5rem;
+            margin-bottom: $margin-bottom-large;
+
+            @include respond(tab-port) {
+                font-size: 2rem;
+            }
+            @include respond(phone) {
+                margin-bottom: 2.5rem;
+            }
+
+            // @include respond(phone) {
+            //     margin-bottom: 3rem;
+            //     font-size: 15px;
+            // }
+        }
+
+        .section-heading {
+            font-size: 2rem;
+
+            @include respond(tab-port) {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-desc {
+            font-size: 1.5rem;
+
+            @include respond(tab-port) {
+                font-size: 2rem;
+            }
+
+            @include respond(phone) {
+               
+            }
+
+            // @include respond(phone) {
+            //     font-size: 15px;
+            //     width: 83%;
+            // }
+        }
+        
+    }
+}

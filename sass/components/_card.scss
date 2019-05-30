@@ -1,0 +1,142 @@
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    height: 40rem;
+    position: relative;
+    
+    
+    &__side {
+        font-size: 2rem;
+        height: 40rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);     
+        
+        @include respond(tab-port) {
+            height: 67rem;
+            backface-visibility: visible;
+        }
+         
+        &--front {
+           background-color: rgba($color-white, .8);
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            @include respond(tab-port) {
+                transform: rotateY(0);
+                height: 22rem;
+                top: 45rem;
+                -webkit-clip-path: polygon(44% 28%, 100% 1%, 100% 100%, 0 100%, 0% 50%);
+                clip-path: polygon(-12% 28%, 100% 1%, 100% 100%, 0 100%, 0% 50%);
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+
+        @include respond(tab-port) {
+            transform: rotateY(0)
+        }
+        
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+        backface-visibility: hidden;
+    }
+
+    //FRONT SIDE STYLING 
+    &__picture {
+        height: 20rem;
+        background-position: center;
+        background-size: cover;
+        clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+
+        &--1 {
+            background-image: url(../images/suzuki.jpg);
+        }
+
+        &--2 {
+            background-image: url(../images/yamaha.jpg);
+        }
+
+        &--3 {
+            background-image: url(../images/honda.jpg);
+        }
+    }
+
+
+    &-header {
+        font-size: 2rem;
+        background-color: crimson;
+        color: $color-white;
+        padding: 3px 2rem;
+        position: absolute;
+        top: 14.5rem;
+        left: 15rem;
+        text-transform: uppercase;
+
+        @include respond(tab-port) {
+            font-size: 3rem;
+            left: 13rem;
+        }
+    }
+
+    &-desc {
+        font-weight: 700;
+        text-align: center;
+        font-size: 1.4rem;
+        padding: 9px 1rem;
+        margin-bottom: 10px;
+        backface-visibility: hidden;
+        
+        @include respond(tab-port) {
+            font-size: 2rem;
+        }
+        
+    }
+    .yamaha {
+        left: 14rem; 
+        @include respond(tab-port) {
+            left: 11rem;  
+        }
+    }
+
+    
+
+
+    //BACK SIDE STYLING
+    &__side--back {
+        background-position: center;
+        background-size: cover;
+        position: relative;
+        backface-visibility: hidden;
+        
+        &-1{
+            background-image: linear-gradient(to right bottom, rgba($color-white, 0.5), rgba($color-black, 0.5)),url(../images/suzuki-logo.jpg);
+            backface-visibility: hidden;
+        }
+
+        &-2 {
+            background-image: linear-gradient(to right bottom, rgba($color-white, 0.5), rgba($color-black, 0.5)),url(../images/yamaha-logo.jpg);
+            backface-visibility: hidden;
+        }
+                
+        &-3 {
+            background-image: linear-gradient(to right bottom, rgba($color-white, 0.5), rgba($color-black, 0.5)),url(../images/honda-logo.jpg);
+            backface-visibility: hidden;
+        }
+
+    }
+
+
+}

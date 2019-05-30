@@ -1,0 +1,80 @@
+.section_footer {
+    background-color: $color-primary;
+    height: 15rem;
+    position: relative;
+
+    @include respond(phone){
+        height: 25rem;
+    }
+
+    .footer-navigation {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 21%;
+        transform: translate(-50%, -50%);
+
+        @include respond(phone){
+            top: 25%;
+            left: 51%;
+        }
+
+        .footer-nav { //<nav>
+            width: 50rem;
+
+            .footer-list { //<ul>
+                text-transform: uppercase;
+                text-align: center;
+                word-spacing: 1rem;
+            }
+            
+            .footer-list-item { //<li>
+                display: inline-block;
+                padding: 1rem;
+                font-size: 1.5rem;               
+            }
+
+            .footer-link {
+                text-decoration: none;
+                color: white;
+                transition: all .2s;
+                padding-bottom: 1rem;
+            
+                &:hover{
+                    border-bottom: 3px solid $color-white;
+                    
+                }
+            }
+        }
+      
+    }
+
+
+    .footer-desc {
+        display: inline-block;
+        width: 50rem;
+        float: right;
+        color: $color-white;
+        margin-top: 2rem;
+        margin-right: 4rem;
+
+        @include respond(phone){
+            margin-top: 11rem;
+            margin-right: 11rem;
+        }
+        
+        
+        .footer-heading {
+            color: $color-white;
+            font-family: "Raleway";
+            text-align: left;
+        }
+
+        &-p {
+            font-size: 1.5rem;
+            border-left: 2px solid $color-white;
+            padding: 0 1rem;
+        }
+    }
+
+}

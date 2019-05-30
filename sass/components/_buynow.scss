@@ -1,0 +1,25 @@
+.section__buy {
+    background-image: linear-gradient(to right bottom, #f7f7f7,#f7f7ff);
+    padding: 15rem 5rem;
+
+    .buy{
+        background-image: linear-gradient(105deg,
+                                            rgba($color-white, .5)0%,
+                                            rgba($color-white, .5)50%,
+                                            transparent 50%) ,
+                                            url(../images/buynow.jpg);
+        background-size: 110%;
+        height: 50rem;
+        box-shadow: 0 1rem 2rem rgba($color-black, .5);
+
+        
+        @include respond(tab-port){
+            background-size: 130%;
+        }
+
+        @include respond(phone){
+            background-size: 250%;
+        }
+    }
+
+}

@@ -1,0 +1,109 @@
+.row {
+    margin: 2rem 0;
+    max-width: $grid-width;
+    margin:0 auto;
+             
+    @include clearfix;
+
+    @include respond(tab-port) {
+        max-width: 100%;
+        margin: 0 4rem;
+    }
+
+    // selecting all class starts with "col-1"
+    // [class^="col-1"] {
+    //     float: left;
+    //     border: 1px solid $color-grey-light;
+    //     padding: 2rem 0;
+    //     transition: all .2s;
+    //     backface-visibility: hidden;
+
+    //     &:not(:last-child) { 
+    //         margin-right: $gutter-horizontal;
+    //     }
+
+    //     &:hover {
+    //         transform: translateY(-3px) scale(1.1);
+    //         box-shadow: .5rem 1rem 2rem rgba($color-black, 0.8);
+    //     }
+
+    // }
+
+    .col-1-of-4 {
+        width: calc( (100% - 3 * #{$gutter-horizontal}) / 4);
+        float: left;
+        border: 1px solid $color-grey-dark;
+        padding: 2rem 0;
+        transition: all .2s;
+        backface-visibility: hidden;
+
+        @include respond(tab-port){
+            width: calc((84% - #{$gutter-horizontal}) / 1); 
+            margin-bottom: 4rem;
+            margin-left: 11rem;
+        }
+
+        @include respond(phone){
+            width: calc((100% - #{$gutter-horizontal}) / 1); 
+            margin-bottom: 4rem;
+            margin-left: 3rem;
+        }
+        
+        // @include respond(phone) {
+        //     width: calc( (100% - #{$gutter-horizontal}) / 1);
+        //     width: 100%;
+        //     margin-bottom: 2rem;
+        // }
+
+        .content--img {
+            height: 50px;
+        }
+
+    
+            &:not(:last-child) { 
+                margin-right: $gutter-horizontal;
+            }
+
+            &:hover {
+                transform: translateY(-3px) scale(1.1);
+                box-shadow: .5rem 1rem 2rem rgba($color-black, 0.8);
+            }
+
+    }
+
+}
+
+.row-brand {
+
+    .col-1-of-3 {
+        width: calc( (100% - 2 * #{$gutter-horizontal}) / 3);
+        float: left;
+        margin-bottom: $margin-bottom-large;
+        height: 40rem;
+
+        @include respond(tab-port) {
+            width: calc( (100% - 2 * #{$gutter-horizontal}) / 1);
+            float: left;
+            margin-bottom: $margin-bottom-large;
+            margin-left: 6%;
+            height: 67rem;
+        }
+
+         @include respond(phone) {
+             width: calc( (100% - #{$gutter-horizontal}) / 1);
+        //     margin-bottom: 32rem;
+             margin-left: 3.5rem;
+         }
+    
+        &:not(:last-child) { 
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+}
+
+
+
+
+
+

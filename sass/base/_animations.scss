@@ -1,0 +1,39 @@
+@keyframes moveInTop {
+    0%{
+        transform: translateY(-13px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInLeft {
+    0%{
+        transform: translateX(-13px);
+        opacity: 0;
+    }
+
+    80% {
+        transform: translateX(4px);
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes headerbutton {
+    0%{
+        transform: translateX(15px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
